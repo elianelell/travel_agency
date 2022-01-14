@@ -2,13 +2,13 @@ package fr.lernejo.travelsite;
 
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-
 @RestController
-public record UserController(UserRepository userRepository) {
+public class UserController {
+
+    private final UserRepository userRepository =  new UserRepository();
 
     @PostMapping(value = "/api/inscription", consumes = {"application/json"})
-    public void createUser(@RequestBody @Valid User user) {
+    public void createUser(@RequestBody User user) {
         userRepository.addUser(user);
     }
 }

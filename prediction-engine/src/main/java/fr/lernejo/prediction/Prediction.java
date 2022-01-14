@@ -7,8 +7,10 @@ import java.util.ArrayList;
 public record Prediction(@NonNull String country,
                          ArrayList<Temperature> temperatures) {
 
-    public Prediction(@NonNull String country, ArrayList<Temperature> temperatures) {
-        this.country = country;
-        this.temperatures = temperatures;
+
+
+    public record Temperature(String date,double temperature){
+
+
     }
 }
