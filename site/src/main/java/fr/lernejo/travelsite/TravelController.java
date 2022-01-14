@@ -10,13 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-public record TravelController(UserRepository userRepository,
-                               UserService userService) {
+public class TravelController {
 
     @GetMapping("/api/travels")
     @ResponseBody
     public List<Travel> getTravels(@RequestParam String userName) {
-        User user = userRepository.getUserFromUserName(userName);
+//        User user = userRepository.getUserFromUserName(userName);
         ArrayList<Travel> Travel = new ArrayList<Travel>();
        /* try {
             Travel.addAll(userService.getCountries(user.getWeatherExpectation().toString(), user.getMinimumTemperatureDistance(), user.getUserCountry()));
